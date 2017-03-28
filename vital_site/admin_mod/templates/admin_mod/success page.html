@@ -1,0 +1,14 @@
+{% extends 'vital/base.html' %}
+
+{% block content %}
+    <form action="{% url 'admin_mod:admin_home' %}" method='POST' style="width: 400px">
+    <h4>{{ message }}</h4>
+    {% csrf_token %}
+    {% if error_message %}
+    <p class="error">
+            {{ error_message }}
+    </p>
+    {% endif %}
+    <input type="submit" value=" Back to Admin Home " />
+    </form>
+{% endblock content %}

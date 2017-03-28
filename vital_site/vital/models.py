@@ -186,3 +186,9 @@ class Auto_Start_Resources(models.Model):
     name = models.CharField(max_length=15, unique=True)
     type = models.CharField(max_length=10)
     course = models.ForeignKey(Course)
+
+class Admin_Network_Configuration(models.Model):
+    course_vlan_id = models.IntegerField(default=50,unique=True)
+    subnet_start = models.IntegerField()
+    subnet_end = models.IntegerField()
+    networks_per_user = models.IntegerField(default=1)

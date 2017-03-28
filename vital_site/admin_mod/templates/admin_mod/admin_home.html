@@ -1,0 +1,25 @@
+{% extends 'vital/base.html' %}
+
+{% block content %}
+
+    <h3>{{ message }}</h3>
+
+<form action="{% url 'admin_mod:admin_home' %}" method='POST' style="width: 400px">
+    {% csrf_token %}
+    {% if error_message %}
+    <p class="error">
+            {{ error_message }}
+    </p>w
+    {% endif %}
+    <table align="left|justify" style="width: auto">
+        {% for x,y in options %}
+            <tr>
+             <a align="right|justify" href="{% url x %}"> {{y}} </a><br>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+
+</form>
+{% endblock content %}

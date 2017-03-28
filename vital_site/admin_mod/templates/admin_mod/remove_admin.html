@@ -1,0 +1,28 @@
+{% extends 'vital/base.html' %}
+
+{% block content %}
+
+    <h3>{{ message }}</h3>
+
+<form action="{% url 'admin_mod:designate_admin' %}" method='POST' style="width: 400px">
+    {% csrf_token %}
+    {% if error_message %}
+    <p class="error">
+            {{ error_message }}
+    </p>w
+    {% endif %}
+    <table align="left|justify" style="width: auto">
+        <tr>
+        <th>   User Email  </th><th>  User Name  </th><th>  Select  </th>
+        </tr>
+        {% for x in users %}
+            <tr>
+            <td>{{ x.email }}</td>
+            <td>{{ x.first_name }} {{  x.last_name }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+</form>
+{% endblock content %}

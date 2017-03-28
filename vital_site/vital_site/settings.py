@@ -24,6 +24,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'vital.apps.VitalConfig',
+    'admin_mod.apps.AdminModConfig',
     'captcha',
     'passwords',
     'session_security',
@@ -160,6 +161,10 @@ LOGGING = {
             'handlers': ['file', 'console'],
             'level': 'DEBUG',
         },
+        'admin_mod': {
+            'handlers': ['file', 'console'],
+            'level': 'DEBUG',
+        }
     }
 }
 
